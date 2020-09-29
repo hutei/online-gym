@@ -1,5 +1,7 @@
 package com.hutei.entity;
 
+import com.hutei.dto.UserDto;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +18,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "email")
+    @Column(name = "email",unique = true)
     private String email;
 
     @Column(name = "sex")
@@ -26,6 +28,14 @@ public class User {
     private String trainType;
 
     public User() {
+    }
+
+    public User(UserDto userDto) {
+        this.username = userDto.getUsername();
+        this.password = userDto.getPassword();
+        this.email = userDto.getEmail();
+        this.sex = userDto.getSex();
+        this.trainType = userDto.getTrainType();
     }
 
     public int getId() {
@@ -75,4 +85,6 @@ public class User {
     public void setTrainType(String trainType) {
         this.trainType = trainType;
     }
+
+
 }

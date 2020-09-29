@@ -1,78 +1,87 @@
 package com.hutei.controller;
 
-import com.hutei.dao.SportsmanRepository;
+import com.hutei.Service.Exception.UserAlreadyExistException;
+import com.hutei.Service.UserService;
 import com.hutei.dto.UserDto;
-import com.hutei.entity.User;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
     @Autowired
-    private SportsmanRepository repository;
+    private UserService userService;
 
-    @GetMapping("/showSignUpForm")
-    public String showSignUpForm(Model model){
+    @GetMapping("/signUp")
+    public String signUp(Model model){
 
-        User user = new User();
+        UserDto user = new UserDto();
 
-        model.addAttribute("user", User.class);
+        model.addAttribute("user", user);
 
-        return "sign-up-form";
+        return "signUp";
     }
 
-    @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute("User") User user){
-
-        String sex = user.getSex();
-        String trainType = user.getTrainType();
-
-        repository.save(user);
-
-        return null;
+    @PostMapping("/signUp")
+    public String userRegistration(final @Valid UserDto userDto, final BindingResult bindingResult, final Model model){
+        if(bindingResult.hasErrors()){
+            model.addAttribute("userDto", userDto);
+            return "signUp";
+        }
+        try {
+            userService.register(userDto);
+        }catch (UserAlreadyExistException e){
+            bindingResult.rejectValue("email", "userDto.email","An account already exists for this email.");
+            model.addAttribute("userDto", userDto);
+            return "/signUp";
+        }
+        return "/index";//<------------------To change--------------------|||
     }
 
-    @GetMapping("/showSignInForm")
-    public String showSignInForm(Model model){
-
-        User user = new User();
-
-        model.addAttribute("user", User.class);
-
-        return "sign-in-form";
-    }
-
-    @GetMapping("/signIn")
-    public String authorization(@ModelAttribute("User") User user) throws NotFoundException {
+//    @PostMapping("/saveUser")
+//    public String saveUser(@ModelAttribute("user") User user){
+//
+//        String sex = user.getSex();
+//        String trainType = user.getTrainType();
+//
+//        repository.save(user);
+//
+//        return "/html/index";
+//    }
 
 
-        User dbUser = repository.findByUsername(user.getUsername());
 
-        if(dbUser != null && dbUser.getUsername().equals(user.getUsername())
-        && dbUser.getPassword().equals(user.getPassword())){
-
-            if(dbUser.getSex().equals("male")){
-
-                if(dbUser.getTrainType().equals("burning fat")){
-
-                    return "MaleBurnFatTraining";
-                }else return "MaleGainMassTraining";
-
-            }else{
-                if(dbUser.getTrainType().equals("burning fat")){
-
-                    return "FemaleBurnFatTraining";
-                }else return "FemaleGainMassTraining";
-            }
-
-
-        }else return "signInWithError";
-    }
+//    @GetMapping("/signIn")
+//    public String authorization(@ModelAttribute("User") User user) throws NotFoundException {
+//
+//
+//        User dbUser = repository.findByUsername(user.getUsername());
+//
+//        if(dbUser != null && dbUser.getUsername().equals(user.getUsername())
+//        && dbUser.getPassword().equals(user.getPassword())){
+//
+//            if(dbUser.getSex().equals("male")){
+//
+//                if(dbUser.getTrainType().equals("burning fat")){
+//
+//                    return "MaleBurnFatTraining";
+//                }else return "MaleGainMassTraining";
+//
+//            }else{
+//                if(dbUser.getTrainType().equals("burning fat")){
+//
+//                    return "FemaleBurnFatTraining";
+//                }else return "FemaleGainMassTraining";
+//            }
+//
+//
+//        }else return "signInWithError";
+//    }
 
 }
