@@ -28,14 +28,15 @@
 
 
 
-    <div id="banner">
+    <div id="banner"  style="background-color: #221e21">
         <div class="container">
             <h1>F I T W O R L D</h1>
 
-            <form action="#">
+
+            <form action="#" th:action="@{//signUp}" th:object="${userDto}" method="post">
                 <label for="Username">
                     Username:
-                    <input type="text" placeholder="FirstName" id="Username" name="Username">
+                    <input type="text" th:field="*{username}" placeholder="Username" id="Username" name="Username">
                 </label>
 <br> <br>
                 <label for="Password">
@@ -45,7 +46,7 @@
 
                 <br>
                 <br>
-<button class="btn">Log in</button>
+<button type="submit" class="btn">Log in</button>
             </form>
 
 
