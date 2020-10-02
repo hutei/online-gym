@@ -18,6 +18,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/services")
+    public String getTraining(){
+
+        return "training";
+    }
+
     @GetMapping("/signUp")
     public String signUp(Model model){
 
@@ -33,12 +39,6 @@ public class UserController {
 
         model.addAttribute("userDto", userDto);
 
-
-        try {
-            userService.register(userDto);
-        } catch (UserAlreadyExistException e) {
-            e.printStackTrace();
-        }
 
 
         if(bindingResult.hasErrors()){

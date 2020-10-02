@@ -10,7 +10,7 @@ public class EmailValidator
 
     private Pattern pattern;
     private Matcher matcher;
-    private static final String EMAIL_PATTERN ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+    private static final String EMAIL_PATTERN ="^(.+)@(.+)$";
     @Override
     public void initialize(ValidEmail constraintAnnotation) {
     }

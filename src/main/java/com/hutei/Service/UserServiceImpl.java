@@ -5,7 +5,7 @@ import com.hutei.dao.UserRepository;
 import com.hutei.dto.UserDto;
 import com.hutei.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,8 +14,8 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository repository;
 
-//    @Autowired
-//    PasswordEncoder passwordEncoder;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService{
         return repository.findByEmail(email) !=null ? true : false;
     }
 
-//    private void encodePassword(User user, UserDto userDto){
-//     user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-//        user.setPassword(userDto.getPassword());
-//    }
+    private void encodePassword(User user, UserDto userDto){
+     user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setPassword(userDto.getPassword());
+    }
 }
