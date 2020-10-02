@@ -1,5 +1,6 @@
 package com.hutei.Service;
 
+import com.hutei.Service.Exception.PasswordMatchingException;
 import com.hutei.Service.Exception.UserAlreadyExistException;
 import com.hutei.dao.UserRepository;
 import com.hutei.dto.UserDto;
@@ -19,7 +20,7 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public void register(UserDto userDto)throws UserAlreadyExistException{
+    public void register(UserDto userDto) throws UserAlreadyExistException {
 
 //        Let's check if user already registered with us
         if(checkIfUserExist(userDto.getEmail())){

@@ -1,5 +1,6 @@
 package com.hutei.controller;
 
+import com.hutei.Service.Exception.PasswordMatchingException;
 import com.hutei.Service.Exception.UserAlreadyExistException;
 import com.hutei.Service.UserService;
 import com.hutei.dto.UserDto;
@@ -45,6 +46,8 @@ public class UserController {
             model.addAttribute("userDto", userDto);
             return "registration";
         }
+
+
         try {
             userService.register(userDto);
         }catch (UserAlreadyExistException e){
@@ -52,6 +55,8 @@ public class UserController {
             model.addAttribute("userDto", userDto);
             return "registration";
         }
+
+
         return "/index";//<------------------To change--------------------|||
     }
 
