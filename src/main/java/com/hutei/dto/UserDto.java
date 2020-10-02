@@ -2,6 +2,7 @@ package com.hutei.dto;
 
 import com.hutei.annotation.FieldMatch;
 import com.hutei.annotation.ValidEmail;
+import com.hutei.annotation.ValidPassword;
 import com.hutei.entity.User;
 import org.springframework.stereotype.Component;
 import javax.validation.constraints.NotEmpty;
@@ -18,6 +19,7 @@ public class UserDto {
 
     @NotEmpty(message = "can't be empty")
     @NotNull(message = "can't be empty")
+    @ValidPassword
     private String password;
 
     @NotEmpty(message = "can't be empty")
