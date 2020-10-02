@@ -21,67 +21,42 @@ public class UserController {
     @GetMapping("/signUp")
     public String signUp(Model model){
 
-        UserDto user = new UserDto();
+        UserDto userDto = new UserDto();
 
-        model.addAttribute("user", user);
+        model.addAttribute("userDto", userDto);
 
-        return "signUp";
+        return "registration";
     }
 
     @PostMapping("/signUp")
-    public String userRegistration(final @Valid UserDto userDto, final BindingResult bindingResult, final Model model){
+    public String userRegistration(@ModelAttribute("userDto") @Valid UserDto userDto, BindingResult bindingResult, Model model) {//<--------valid should be there and bindingResult
+
+        model.addAttribute("userDto", userDto);
+
+
+        try {
+            userService.register(userDto);
+        } catch (UserAlreadyExistException e) {
+            e.printStackTrace();
+        }
+
+
         if(bindingResult.hasErrors()){
             model.addAttribute("userDto", userDto);
-            return "signUp";
+            return "registration";
         }
         try {
             userService.register(userDto);
         }catch (UserAlreadyExistException e){
             bindingResult.rejectValue("email", "userDto.email","An account already exists for this email.");
             model.addAttribute("userDto", userDto);
-            return "/signUp";
+            return "registration";
         }
         return "/index";//<------------------To change--------------------|||
     }
 
-//    @PostMapping("/saveUser")
-//    public String saveUser(@ModelAttribute("user") User user){
-//
-//        String sex = user.getSex();
-//        String trainType = user.getTrainType();
-//
-//        repository.save(user);
-//
-//        return "/html/index";
-//    }
 
 
 
-//    @GetMapping("/signIn")
-//    public String authorization(@ModelAttribute("User") User user) throws NotFoundException {
-//
-//
-//        User dbUser = repository.findByUsername(user.getUsername());
-//
-//        if(dbUser != null && dbUser.getUsername().equals(user.getUsername())
-//        && dbUser.getPassword().equals(user.getPassword())){
-//
-//            if(dbUser.getSex().equals("male")){
-//
-//                if(dbUser.getTrainType().equals("burning fat")){
-//
-//                    return "MaleBurnFatTraining";
-//                }else return "MaleGainMassTraining";
-//
-//            }else{
-//                if(dbUser.getTrainType().equals("burning fat")){
-//
-//                    return "FemaleBurnFatTraining";
-//                }else return "FemaleGainMassTraining";
-//            }
-//
-//
-//        }else return "signInWithError";
-//    }
 
 }

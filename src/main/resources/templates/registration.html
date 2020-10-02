@@ -19,7 +19,7 @@
             <h1 class="chy">Change yourself</h1>
             <ul class="navbar">
                 <li><a th:href="@{/}" href="index.html">Home</a></li>
-                <li><a th:href="@{/signUp}" href="signUp.html">Sign up</a></li>
+                <li><a th:href="@{/signUp}" href="registration.html">Sign up</a></li>
                 <li><a th:href="@{/aboutUs}" href="aboutUs.html">About Us</a></li>
                 <li><a th:href="@{/}" href="index.html">Services</a></li>
             </ul>
@@ -34,29 +34,37 @@
 
             <h1>Sign up</h1>
             <h6>It is free and always will be.</h6>
-            <form action="#">
 
-                <form action="#" th:action="@{//signUp}" th:object="${userDto}" method="post">
+
+                <form action="/signUp" th:action="@{/signUp}" th:object="${userDto}" method="post">
 
 
                 <label for="Username">
                     <span class="tfsu">Username</span> <br>
-                    <input type="text" th:field="*{username}" placeholder="Username" id="Username" name="Username">
+                    <input  type="text" th:field="*{username}" placeholder="Username" id="Username" name="Username">
+                    <p th:each="error: ${#fields.errors('username')}"
+                       th:text="${error}">Validation error</p>
                 </label>
                 <br>
                 <label for="Username">
                     <span class="tfsu">Mail</span> <br>
                     <input type="text" th:field="*{email}" placeholder="Email" name="MAIL">
+                    <p th:each="error: ${#fields.errors('email')}"
+                       th:text="${error}">Validation error</p>
                 </label>
                 <br>
                 <label for="Username">
                     <span class="tfsu">New password</span> <br>
                     <input type="password" th:field="*{password}" id="passwordsiup" name="passwordsiup">
+                    <p th:each="error: ${#fields.errors('password')}"
+                       th:text="${error}">Validation error</p>
                 </label>
                 <br>
                 <label for="Username">
                     <span class="tfsu">Confirm password</span> <br>
                     <input type="password" th:field="*{confirmPassword}" placeholder="confirm Password" id="cpassword" name="cpassword">
+                    <p th:each="error: ${#fields.errors('confirmPassword')}"
+                       th:text="${error}">Validation error</p>
                 </label>
 <br>
                 <label><input type="radio" th:field="*{sex}" name="sex" value="male">Male</label>
@@ -66,7 +74,7 @@
                 <br>
                 <label><input type="radio" th:field="*{trainType}"  name="content" value="gainingWeight">Gaining weight</label>
 <br>
-<button class="btn">Confirm</button>
+<button type="submit" class="btn">Confirm</button>
             </form>
 
 

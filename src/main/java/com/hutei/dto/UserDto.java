@@ -1,33 +1,47 @@
 package com.hutei.dto;
 
+//import com.hutei.annotation.FieldMatch;
+import com.hutei.annotation.ValidEmail;
 import com.hutei.entity.User;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.stereotype.Component;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+
+@Component
+//@FieldMatch.List({
+////        @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
+////        @FieldMatch(first = "email", second = "confirmEmail", message = "The email fields must match")
+////})
 public class UserDto {
 
-    private int id;
-    @NotNull
+    @NotEmpty(message = "can't be empty")
+    @NotNull(message = "can't be empty")
     private String username;
-    @NotNull
+
+    @NotEmpty(message = "can't be empty")
+    @NotNull(message = "can't be empty")
     private String password;
-    @NotNull
+
+    @NotEmpty(message = "can't be empty")
+    @NotNull(message = "can't be empty")
     private String confirmPassword;
-    @NotNull
-    @Email
+
+    @ValidEmail(message = "invalid email")
+    @NotEmpty(message = "can't be empty")
+    @NotNull(message = "can't be empty")
     private String email;
-    @NotNull
+
+    @NotEmpty(message = "can't be empty")
+    @NotNull(message = "can't be empty")
     private String sex;
-    @NotNull
+
+    @NotEmpty(message = "can't be empty")
+    @NotNull(message = "can't be empty")
     private String trainType;
 
     public UserDto(User user) {
-        this.id = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.email = user.getEmail();
@@ -40,13 +54,6 @@ public class UserDto {
     }
 
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;

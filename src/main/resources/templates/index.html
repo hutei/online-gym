@@ -19,7 +19,7 @@
             <h1 class="chy">Change yourself</h1>
             <ul class="navbar">
                 <li><a th:href="@{/}" href="index.html">Home</a></li>
-                <li><a th:href="@{/signUp}" href="signUp.html">Sign up</a></li>
+                <li><a th:href="@{/signUp}" href="@{/signUp}">Sign up</a></li>
                 <li><a th:href="@{/aboutUs}" href="aboutUs.html">About Us</a></li>
                 <li><a th:href="@{/}" href="index.html">Services</a></li>
             </ul>
@@ -33,10 +33,10 @@
             <h1>F I T W O R L D</h1>
 
 
-            <form action="#" th:action="@{//signUp}" th:object="${userDto}" method="post">
+            <form action="#">
                 <label for="Username">
                     Username:
-                    <input type="text" th:field="*{username}" placeholder="Username" id="Username" name="Username">
+                    <input type="text" placeholder="Username" id="Username" name="Username">
                 </label>
 <br> <br>
                 <label for="Password">
