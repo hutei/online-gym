@@ -19,6 +19,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/signIn")
+    public String signIn(){
+
+        return "";
+    }
+
     @GetMapping("/services")
     public String getTraining(){
 
