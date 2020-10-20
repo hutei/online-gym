@@ -15,6 +15,7 @@ public class User {
     @Column(name = "username")
     private String username;
 
+
     @Column(name = "password")
     private String password;
 
@@ -27,6 +28,9 @@ public class User {
     @Column(name = "train_type")
     private String trainType;
 
+    @Column(name = "role")
+    private String role;
+
     public User() {
     }
 
@@ -36,6 +40,16 @@ public class User {
         this.email = userDto.getEmail();
         this.sex = userDto.getSex();
         this.trainType = userDto.getTrainType();
+
+        this.role = getSex() + "_" + getTrainType();
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public int getId() {

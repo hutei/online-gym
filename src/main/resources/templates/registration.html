@@ -67,12 +67,12 @@
                        th:text="${error}">Validation error</p>
                 </label>
 <br>
-                <label><input type="radio" th:field="*{sex}" name="sex" value="male">Male</label>
-                <label><input type="radio" th:field="*{sex}" name="sex" value="female">Female</label>
+                <label><input type="radio" th:field="*{sex}" name="sex" value="MALE">Male</label>
+                <label><input type="radio" th:field="*{sex}" name="sex" value="FEMALE">Female</label>
 <br>
-                <label><input type="radio" th:field="*{trainType}"  name="content" value="burningFat">Burning fat</label>
+                <label><input type="radio" th:field="*{trainType}"  name="content" value="BURN_FAT">Burning fat</label>
                 <br>
-                <label><input type="radio" th:field="*{trainType}"  name="content" value="gainingWeight">Gaining weight</label>
+                <label><input type="radio" th:field="*{trainType}"  name="content" value="GAIN_WEIGHT">Gaining weight</label>
 <br>
 <button type="submit" class="btn">Confirm</button>
             </form>
