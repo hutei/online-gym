@@ -26,5 +26,17 @@ public class HomeController {
         return "aboutUs";
     }
 
+    @GetMapping("/authorized")
+    public String showHome(){
+        return "authorized";
+    }
+
+    @GetMapping("/LoggedAboutUs")
+    public String showPage1(){
+
+        return "LoggedAboutUs";
+    }
+
+
 
 }

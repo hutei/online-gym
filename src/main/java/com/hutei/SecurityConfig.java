@@ -73,12 +73,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/signIn")
                 //Перенарпавление на главную страницу после успешного входа
-                .defaultSuccessUrl("/aboutUs")
+                .defaultSuccessUrl("/authorized")
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll()
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/")
+                .permitAll();
     }
 
     @SuppressWarnings("deprecation")

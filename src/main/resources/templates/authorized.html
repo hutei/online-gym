@@ -1,0 +1,51 @@
+<<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" href="../static/css/style.css"/>
+    <link rel="stylesheet"  th:href="@{/css/style.css}" />
+
+</head>
+
+
+<body>
+
+<div id="header">
+    <div class="container">
+        <h1 class="chy">Change yourself</h1>
+        <ul class="navbar">
+            <li><a th:href="@{/authorized}" href="authorized.html">Home</a></li>
+            <li><a th:href="@{/services}" href="training.html">Services</a></li>
+            <li><a th:href="@{/LoggedAboutUs}" href="LoggedAboutUs.html">Services</a></li>
+
+        </ul>
+    </div> <!--End of container-->
+</div> <!--End of header-->
+
+
+
+<div id="banner"  style="background-color: #221e21">
+    <div class="container">
+        <h1>F I T W O R L D</h1>
+
+       <h2>Welcome to our service,you are succesfully authorized</h2>
+        <h3>To get training - press the "service" button</h3>
+        <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+            <input hidden type="submit" value="Sign Out"/>
+        </form>
+
+    </div> <!--End of container-->
+</div> <!--End of banner-->
+
+
+
+
+</body>
+
+</html>
