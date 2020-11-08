@@ -4,6 +4,7 @@ import com.hutei.dto.UserDto;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -31,6 +32,10 @@ public class User {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "enabled")
+    private boolean enabled;
+
+
     public User() {
     }
 
@@ -40,8 +45,18 @@ public class User {
         this.email = userDto.getEmail();
         this.sex = userDto.getSex();
         this.trainType = userDto.getTrainType();
+        this.enabled = true;
 
         this.role = getSex() + "_" + getTrainType();
+    }
+
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getRole() {

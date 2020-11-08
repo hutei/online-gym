@@ -20,9 +20,9 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/signIn")
-    public String signIn(){
+    public String signIn(Model model){
 
-        return "";
+        return "index";
     }
 
     @GetMapping("/services")

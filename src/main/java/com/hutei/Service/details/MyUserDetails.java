@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 public class MyUserDetails implements UserDetails {
 
@@ -17,6 +16,7 @@ public class MyUserDetails implements UserDetails {
     private String sex;
     private String trainType;
     private String role;
+    private boolean enabled;
 
     public MyUserDetails(User user) {
         this.username = user.getUsername();
@@ -25,6 +25,7 @@ public class MyUserDetails implements UserDetails {
         this.sex = user.getSex();
         this.trainType = user.getTrainType();
         this.role = user.getRole();
+        this.enabled = user.isEnabled();
     }
 
     @Override
@@ -59,6 +60,7 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
+
 }

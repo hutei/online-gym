@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
 
         else {
             User user = new User(userDto);
-           // encodePassword(user, userDto);
+           encodePassword(user, userDto);
             repository.save(user);
         }
 

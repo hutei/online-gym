@@ -41,12 +41,15 @@ public class UserDto {
     @NotNull(message = "can't be empty")
     private String trainType;
 
+    private  String role;
+
     public UserDto(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.email = user.getEmail();
         this.sex = user.getSex();
         this.trainType = user.getTrainType();
+        this.role = user.getRole();
     }
 
     public UserDto() {
@@ -54,6 +57,13 @@ public class UserDto {
     }
 
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getUsername() {
         return username;
