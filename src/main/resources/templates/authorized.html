@@ -36,8 +36,9 @@
 
        <h2>Welcome to our service,you are succesfully authorized</h2>
         <h3>To get training - press the "service" button</h3>
-        <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
-            <input hidden type="submit" value="Sign Out"/>
+
+        <form name="logoutForm" th:action="@{/logout}" method="post" >
+            <input  type="submit" value="Sign Out"/>
         </form>
 
     </div> <!--End of container-->
