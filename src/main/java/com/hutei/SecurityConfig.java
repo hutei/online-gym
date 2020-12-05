@@ -56,8 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .csrf()
+        httpSecurity                .csrf()
                 .disable()
                 .authorizeRequests()
                 //Доступ только для не зарегистрированных пользователей
@@ -73,7 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/signIn")
                 //Перенарпавление на главную страницу после успешного входа
-                .defaultSuccessUrl("/authorized")
+                .defaultSuccessUrl("/signIn")
                 .permitAll()
                 .and()
                 .logout()

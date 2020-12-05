@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="http://thymeleaf.org">
-<head>
+<html lang="en"  xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"><head>
     <meta charset="UTF-8">
     <title>Title</title>
 
     <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" />
 </head>
-<body>
+<body style="background-color: #343a40">
  here will be training
 
 
@@ -17,9 +16,12 @@
          <h1 class="chy">Change yourself</h1>
          <ul class="navbar">
              <li><a th:href="@{/}" href="index.html">Home</a></li>
-             <li><a th:href="@{/signUp}" href="registration.html">Sign up</a></li>
+             <li sec:authorize ="!isAuthenticated()"><a th:href="@{/signUp}" href="@{/signUp}">Sign up</a></li>
              <li><a th:href="@{/aboutUs}" href="aboutUs.html">About Us</a></li>
-             <li><a th:href="@{/services}" href="training.html">Services</a></li>
+             <li sec:authorize="isAuthenticated()"><a th:href="@{/services}" href="training.html">Training</a></li>
+             <li sec:authorize="isAuthenticated()"><form name="logoutForm" th:action="@{/logout}" method="post" >
+                 <input  type="submit" value="Sign Out"/>
+             </form></li>
          </ul>
      </div>
      <!--End of container-->
