@@ -37,35 +37,34 @@
         <div class="container">
 
             <h1>Sign up</h1>
-            <h6>It is free and always will be.</h6>
 
 
                 <form action="/signUp" th:action="@{/signUp}" th:object="${userDto}" method="post">
 
 
                 <label for="Username">
-                    <span class="tfsu">Username</span> <br>
+                    <span class="tfsu" style="color: black;">Username</span> <br>
                     <input  type="text" th:field="*{username}" placeholder="Username" id="Username" name="Username">
                     <p th:each="error: ${#fields.errors('username')}"
                        th:text="${error}">Validation error</p>
                 </label>
                 <br>
                 <label for="Username">
-                    <span class="tfsu">Mail</span> <br>
+                    <span class="tfsu" style="color: black">Mail</span> <br>
                     <input type="text" th:field="*{email}" placeholder="Email" name="MAIL">
                     <p th:each="error: ${#fields.errors('email')}"
                        th:text="${error}">Validation error</p>
                 </label>
                 <br>
                 <label for="Username">
-                    <span class="tfsu">New password</span> <br>
+                    <span class="tfsu" >New password</span> <br>
                     <input type="password" th:field="*{password}" id="passwordsiup" name="passwordsiup">
                     <p th:each="error: ${#fields.errors('password')}"
                        th:text="${error}">Validation error</p>
                 </label>
                 <br>
                 <label for="Username">
-                    <span class="tfsu">Confirm password</span> <br>
+                    <span class="tfsu" >Confirm password</span> <br>
                     <input type="password" th:field="*{confirmPassword}" placeholder="confirm Password" id="cpassword" name="cpassword">
                     <p th:each="error: ${#fields.errors('confirmPassword')}"
                        th:text="${error}">Validation error</p>

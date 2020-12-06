@@ -13,20 +13,22 @@
 
 <body style="background-color: #343a40">
 
-    <div id="header">
-        <div class="container">
-            <h1 class="chy">Change yourself</h1>
-            <ul class="navbar">
-                <li><a th:href="@{/}" href="index.html">Home</a></li>
-                <li sec:authorize ="!isAuthenticated()"><a th:href="@{/signUp}" href="@{/signUp}">Sign up</a></li>
-                <li><a th:href="@{/aboutUs}" href="aboutUs.html">About Us</a></li>
-                <li sec:authorize="isAuthenticated()"><a th:href="@{/services}" href="training.html">Training</a></li>
-                <li sec:authorize="isAuthenticated()"><form name="logoutForm" th:action="@{/logout}" method="post" >
-                    <input  type="submit" value="Sign Out"/>
-                </form></li>
-            </ul>
-        </div> <!--End of container-->
-    </div> <!--End of header-->
+   <header>
+       <div id="header">
+           <div class="container">
+               <h1 class="chy">Change yourself</h1>
+               <ul class="navbar">
+                   <li><a th:href="@{/}" href="index.html">Home</a></li>
+                   <li sec:authorize ="!isAuthenticated()"><a th:href="@{/signUp}" href="@{/signUp}">Sign up</a></li>
+                   <li><a th:href="@{/aboutUs}" href="aboutUs.html">About Us</a></li>
+                   <li sec:authorize="isAuthenticated()"><a th:href="@{/services}" href="training.html">Training</a></li>
+                   <li sec:authorize="isAuthenticated()"><form name="logoutForm" th:action="@{/logout}" method="post" >
+                       <input  type="submit" value="Sign Out"/>
+                   </form></li>
+               </ul>
+           </div> <!--End of container-->
+       </div> <!--End of header-->
+   </header>
 
 
 
