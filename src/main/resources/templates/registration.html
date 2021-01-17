@@ -39,7 +39,8 @@
             <h1>Sign up</h1>
 
 
-                <form action="/signUp" th:action="@{/signUp}" th:object="${userDto}" method="post">
+                <form action="/signUp" th:action="@{/signUp}" th:object="${userDto}" method="post"
+                      style="width: 30%; background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin:auto">
 
 
                 <label for="Username">
@@ -70,12 +71,12 @@
                        th:text="${error}">Validation error</p>
                 </label>
 <br>
-                <label><input type="radio" th:field="*{sex}" name="sex" value="MALE">Male</label>
-                <label><input type="radio" th:field="*{sex}" name="sex" value="FEMALE">Female</label>
+                <label><input type="radio" th:field="*{sex}" name="sex" value="M">Male</label>
+                <label><input type="radio" th:field="*{sex}" name="sex" value="F">Female</label>
 <br>
-                <label><input type="radio" th:field="*{trainType}"  name="content" value="BURN_FAT">Burning fat</label>
+                <label><input type="radio" th:field="*{trainType}"  name="content" value="B">Burning fat</label>
                 <br>
-                <label><input type="radio" th:field="*{trainType}"  name="content" value="GAIN_WEIGHT">Gaining weight</label>
+                <label><input type="radio" th:field="*{trainType}"  name="content" value="G">Gaining weight</label>
 <br>
 <button type="submit" class="btn">Confirm</button>
             </form>

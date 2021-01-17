@@ -3,6 +3,7 @@ package com.hutei.entity;
 import com.hutei.dto.UserDto;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 
 @Entity
@@ -47,7 +48,7 @@ public class User {
         this.trainType = userDto.getTrainType();
         this.enabled = true;
 
-        this.role = getSex() + "_" + getTrainType();
+        this.role = getSex() + getTrainType();
     }
 
 

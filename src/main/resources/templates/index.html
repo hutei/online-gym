@@ -36,12 +36,85 @@
         <div class="container" >
             <h1>F I T W O R L D</h1>
 
+            <div sec:authorize ="hasAnyAuthority('MB','WB')">
 
-            <div sec:authorize ="isAuthenticated()">
-                <h1>Content for authorized users</h1>
+                <div>1st training</div>
+
+                <table border="1">
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Recomendation</th>
+                    </tr>
+                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                </table>
+
+                    <div>2nd training</div>
+
+                    <table border="1">
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Recomendation</th>
+                        </tr>
+                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                    </table>
+
+                        <div>3nd training</div>
+
+                        <table border="1">
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Recomendation</th>
+                            </tr>
+                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                        </table>
+
             </div>
 
-            <form th:action="@{/signIn}" method="post" >
+
+<!--           <form  th:action="@{/addData}" th:object="${userData}" method="post" sec:authorize ="isAuthenticated()">-->
+<!--               <div style="width: 30%; background-color: #4e555b;opacity: 0.7;border-radius: 3px;margin:auto">-->
+<!--                   <div>-->
+<!--                       Finish input and get your training-->
+<!--                   </div>-->
+
+<!--                   <div>-->
+<!--                       <div>-->
+<!--                           <div>-->
+<!--                               how many training could you have?-->
+<!--                           </div>-->
+<!--                           <select class="form-select" aria-label="Default select example">-->
+<!--&lt;!&ndash;                               <option selected>Open this select menu</option>&ndash;&gt;-->
+<!--                               <option th:field="*{quantity}" value="2">Two</option>-->
+<!--                               <option th:field="*{quantity}" value="3">Three</option>-->
+<!--                           </select>-->
+<!--                       </div>-->
+
+<!--                       <div>-->
+<!--                           <select class="form-select" aria-label="Default select example">-->
+<!--&lt;!&ndash;                               <option selected>Open this select menu</option>&ndash;&gt;-->
+<!--                               <option value="1">One</option>-->
+<!--                               <option value="2">Two</option>-->
+<!--                           </select>-->
+<!--                       </div>-->
+<!--                   </div>-->
+<!--               </div>-->
+<!--           </form>-->
+
+            <form th:action="@{/signIn}" method="post" sec:authorize ="!isAuthenticated()"
+                  style="width: 30%; background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin:auto">
+
                 <div th:if="${param.error}">
                     <div class="alert alert-danger">Invalid username or password.
                     </div>

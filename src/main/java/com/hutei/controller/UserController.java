@@ -4,6 +4,7 @@ import com.hutei.Service.Exception.PasswordMatchingException;
 import com.hutei.Service.Exception.UserAlreadyExistException;
 import com.hutei.Service.UserService;
 import com.hutei.dto.UserDto;
+import com.hutei.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +32,12 @@ public class UserController {
         return "training";
     }
 
+//    @GetMapping("/addData")
+//    public String addData(Model model){
+//        UserData userData = new UserData();
+//        model.addAttribute("userData",userData);
+//        return null;
+//    }
     @GetMapping("/signUp")
     public String signUp(Model model){
 
