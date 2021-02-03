@@ -21,7 +21,7 @@
                    <li><a th:href="@{/}" href="index.html">Home</a></li>
                    <li sec:authorize ="!isAuthenticated()"><a th:href="@{/signUp}" href="@{/signUp}">Sign up</a></li>
                    <li><a th:href="@{/aboutUs}" href="aboutUs.html">About Us</a></li>
-                   <li sec:authorize="isAuthenticated()"><a th:href="@{/services}" href="training.html">Training</a></li>
+<!--                   <li sec:authorize="isAuthenticated()"><a th:href="@{/services}" href="training.html">Training</a></li>-->
                    <li sec:authorize="isAuthenticated()"><form name="logoutForm" th:action="@{/logout}" method="post" >
                        <input  type="submit" value="Sign Out"/>
                    </form></li>
@@ -36,49 +36,108 @@
         <div class="container" >
             <h1>F I T W O R L D</h1>
 
-            <div sec:authorize ="hasAnyAuthority('MB','WB')">
+            <div sec:authorize ="hasAnyAuthority('MG','WG')">
 
-                <div>1st training</div>
+                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">1st training</div>
 
-                <table border="1">
+                <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
                     <tr>
                         <th>Exercise</th>
-                        <th>Recomendation</th>
+                        <th>Recommendation</th>
                     </tr>
-                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                    <tr><td></td><td></td></tr>
+                    <tr><td></td><td>t</td></tr>
+                    <tr><td></td><td>do this exercise 5-10 minutes</td></tr>
+                    <tr><td></td><td></td></tr>
+                    <tr><td></td><td></td></tr>
+
                 </table>
 
-                    <div>2nd training</div>
+                    <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">2nd training</div>
 
-                    <table border="1">
+                    <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
                         <tr>
                             <th>Exercise</th>
-                            <th>Recomendation</th>
+                            <th>Recommendation</th>
                         </tr>
-                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                        <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                        <tr><td>Bench press</td><td>5 sets: 12,10,8,6,4(with increasing weight)</td></tr>
+                        <tr><td>Inclined dumbbell press</td><td>4x12</td></tr>
+                        <tr><td>Dips</td><td>4x10-12(use additional weight if you make more than 15 reps)</td></tr>
+                        <tr><td>Crossover</td><td>4x12</td></tr>
+                        <tr><td>Standing Barbell Curl</td><td>12,10,8,6</td></tr>
+                        <tr><td>Hammer Curl</td><td>4x(8-10)</td></tr>
+                        <tr><td>Reverse Barbell Curl</td><td>4x12-15</td></tr>
                     </table>
 
-                        <div>3nd training</div>
+                        <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">3nd training</div>
 
-                        <table border="1">
+                        <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
                             <tr>
                                 <th>Exercise</th>
-                                <th>Recomendation</th>
+                                <th>Recommendation</th>
                             </tr>
-                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
-                            <tr><td>Run</td><td>do this ex. firstly(as the warm-up),keep moderate pace(120bpm/min)</td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td>t</td></tr>
+                            <tr><td></td><td>do this exercise 5-10 minutes</td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
                         </table>
+
+                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">Rest between exercises - 30 sec</div>
+
+
+            </div>
+
+
+
+
+            <div sec:authorize ="hasAnyAuthority('MB','WB')">
+
+                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">1st training</div>
+
+                <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Recommendation</th>
+                    </tr>
+                    <tr><td>Run</td><td>do this ex. firstly(as the warm-up 10-15 min),keep moderate pace(120bpm/min)</td></tr>
+                    <tr><td>Squat</td><td>try to do as more reps as you can in 30 sec</td></tr>
+                    <tr><td>Skipping rope</td><td>do this exercise 5-10 minutes</td></tr>
+                    <tr><td>Twisting</td><td>do it 30 seconds</td></tr>
+                    <tr><td>Frog jump</td><td>try to keep as higher pace as you can</td></tr>
+
+                </table>
+
+                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">2nd training</div>
+
+                <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Recommendation</th>
+                    </tr>
+                    <tr><td>Push ups</td><td>Important to do it correctly(look in internet how-to do push-ups) 30 seconds</td></tr>
+                    <tr><td>Box jump</td><td>you can use bench if you train outside</td></tr>
+                    <tr><td>split jump</td><td>keep your body straight and don't touch ground with you knees</td></tr>
+                    <tr><td>Sit ups</td><td>do as more reps as you can in 30 sec</td></tr>
+                    <tr><td>Plank</td><td>Stay in plank as more as you can.Each duration is individual</td></tr>
+                </table>
+
+                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">3nd training</div>
+
+                <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Recommendation</th>
+                    </tr>
+                    <tr><td>Burpee</td><td>There are a lot variants of burpee.Find one suitable for you and do in 30 sec</td></tr>
+                    <tr><td>Step up</td><td>30-45 sec</td></tr>
+                    <tr><td>Run</td><td>5-15 minutes of running in moderate pace</td></tr>
+                    <tr><td>Mountain climber</td><td>Do it 30-45 sec with high intensity</td></tr>
+                    <tr><td>Skipping rope</td><td>1 minute with high intensity, one with low.Do 2-3 sets</td></tr>
+                </table>
+
+                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">Rest between exercises - 30 sec</div>
+
 
             </div>
 
