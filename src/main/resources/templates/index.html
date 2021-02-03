@@ -34,67 +34,41 @@
 
     <div id="banner">
         <div class="container" >
-            <h1>F I T W O R L D</h1>
-
+            <h1 sec:authorize="!isAuthenticated()">F I T W O R L D</h1>
+            <h2 sec:authorize="isAuthenticated()" style="margin-left: auto">F I T W O R L D</h2>
             <div sec:authorize ="hasAnyAuthority('MG','WG')">
-
                 <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">1st training</div>
-
                 <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
                     <tr>
                         <th>Exercise</th>
                         <th>Recommendation</th>
                     </tr>
-                    <tr><td></td><td></td></tr>
-                    <tr><td></td><td>t</td></tr>
-                    <tr><td></td><td>do this exercise 5-10 minutes</td></tr>
-                    <tr><td></td><td></td></tr>
-                    <tr><td></td><td></td></tr>
-
+                    <tr><td>Bench press</td><td>5 sets: 12,10,8,6,4(with increasing weight)</td></tr>
+                    <tr><td>Inclined dumbbell press</td><td>4x12</td></tr>
+                    <tr><td>Dips</td><td>4x10-12(use additional weight if you make more than 15 reps)</td></tr>
+                    <tr><td>Crossover</td><td>4x12</td></tr>
+                    <tr><td>Standing Barbell Curl</td><td>12,10,8,6</td></tr>
+                    <tr><td>Hammer Curl</td><td>4x(8-10)</td></tr>
+                    <tr><td>Reverse Barbell Curl</td><td>4x12-15</td></tr>
                 </table>
-
-                    <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">2nd training</div>
-
-                    <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
-                        <tr>
-                            <th>Exercise</th>
-                            <th>Recommendation</th>
-                        </tr>
-                        <tr><td>Bench press</td><td>5 sets: 12,10,8,6,4(with increasing weight)</td></tr>
-                        <tr><td>Inclined dumbbell press</td><td>4x12</td></tr>
-                        <tr><td>Dips</td><td>4x10-12(use additional weight if you make more than 15 reps)</td></tr>
-                        <tr><td>Crossover</td><td>4x12</td></tr>
-                        <tr><td>Standing Barbell Curl</td><td>12,10,8,6</td></tr>
-                        <tr><td>Hammer Curl</td><td>4x(8-10)</td></tr>
-                        <tr><td>Reverse Barbell Curl</td><td>4x12-15</td></tr>
-                    </table>
-
-                        <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">3nd training</div>
-
-                        <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
-                            <tr>
-                                <th>Exercise</th>
-                                <th>Recommendation</th>
-                            </tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td>t</td></tr>
-                            <tr><td></td><td>do this exercise 5-10 minutes</td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                        </table>
-
-                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">Rest between exercises - 30 sec</div>
-
-
+                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">2nd training</div>
+                <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Recommendation</th>
+                    </tr>
+                    <tr><td>Wide-grip lat pull-down</td><td>12,10,8,6,4(with increasing weight)</td></tr>
+                    <tr><td>Seated Cable Row</td><td>4x12</td></tr>
+                    <tr><td>Bent Over Barbell Row</td><td>4x10-12</td></tr>
+                    <tr><td>hyperextension</td><td>4x12-15</td></tr>
+                    <tr><td>Lying Triceps Extension</td><td>4x12</td></tr>
+                    <tr><td>Bench Dips</td><td>4xMAX</td></tr>
+                    <tr><td>Triceps Pushdowns</td><td>3x12+1xMAX</td></tr>
+                </table>
+                <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">Rest between exercises - 100-120 sec</div>
             </div>
-
-
-
-
             <div sec:authorize ="hasAnyAuthority('MB','WB')">
-
                 <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">1st training</div>
-
                 <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
                     <tr>
                         <th>Exercise</th>
@@ -105,11 +79,8 @@
                     <tr><td>Skipping rope</td><td>do this exercise 5-10 minutes</td></tr>
                     <tr><td>Twisting</td><td>do it 30 seconds</td></tr>
                     <tr><td>Frog jump</td><td>try to keep as higher pace as you can</td></tr>
-
                 </table>
-
                 <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">2nd training</div>
-
                 <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
                     <tr>
                         <th>Exercise</th>
@@ -121,9 +92,7 @@
                     <tr><td>Sit ups</td><td>do as more reps as you can in 30 sec</td></tr>
                     <tr><td>Plank</td><td>Stay in plank as more as you can.Each duration is individual</td></tr>
                 </table>
-
                 <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">3nd training</div>
-
                 <table border="1" style="background-color: #4e555b;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">
                     <tr>
                         <th>Exercise</th>
@@ -135,10 +104,7 @@
                     <tr><td>Mountain climber</td><td>Do it 30-45 sec with high intensity</td></tr>
                     <tr><td>Skipping rope</td><td>1 minute with high intensity, one with low.Do 2-3 sets</td></tr>
                 </table>
-
                 <div style="background-color: coral;opacity: 0.85;border-radius: 3px;margin-left: 15%;margin-right: 15%">Rest between exercises - 30 sec</div>
-
-
             </div>
 
 
